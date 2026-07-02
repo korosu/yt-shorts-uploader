@@ -1,0 +1,26 @@
+# yt-shorts-uploader configuration
+# Copy to config.yaml and edit. Real config.yaml is gitignored.
+
+# Path to the youtubeuploader binary: https://github.com/porjo/youtubeuploader
+uploader_binary: "/root/youtubeuploader/youtubeuploader"
+
+# Where per-account metaJSON files are written before each upload
+meta_dir: "/root/youtubeuploader/meta"
+
+# Seconds to sleep between uploads (avoid hammering the API / getting flagged)
+sleep_between_uploads: 5
+
+# Subfolder name inside each account's videos_dir where uploaded files are
+# moved once the upload succeeds
+uploaded_dir_name: "old_videos"
+
+# Used when a video has no <name>.json sidecar, or the sidecar omits a field
+defaults:
+  privacy_status: "private"   # private | unlisted | public
+  category_id: "22"           # 22 = People & Blogs
+  tags: ["shorts"]
+
+# Optional Telegram notifications on completion / failure / quota hit.
+# Token and chat id go in .env, not here.
+notify:
+  enabled: true

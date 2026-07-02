@@ -1,0 +1,10 @@
+.env
+config.yaml
+accounts.yaml
+meta/
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.ruff_cache/
+.idea
