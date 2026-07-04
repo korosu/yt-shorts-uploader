@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import sys
+
 import requests
 
 from yt_uploader.engine.settings import Settings
@@ -21,5 +23,5 @@ def alert(settings: Settings, message: str) -> None:
             json={"chat_id": settings.telegram_chat_id, "text": message},
             timeout=10,
         )
-    except requests.RequestException:
-        pass
+    except requests.RequestException as exc:
+        print(f"[notify] failed to send telegram alert: {exc}", file=sys.stderr)
