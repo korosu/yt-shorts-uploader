@@ -20,7 +20,9 @@ defaults:
   category_id: "22"           # 22 = People & Blogs
   tags: ["shorts"]
 
-# Optional Telegram notifications on completion / failure / quota hit.
-# Token and chat id go in .env, not here.
+# Optional Telegram and/or Discord notifications on completion / failure / quota hit.
+# Telegram: TELEGRAM_TOKEN and TELEGRAM_CHAT_ID go in .env
+# Discord: webhook URL goes here. Both can be active simultaneously.
 notify:
   enabled: true
+  discord_webhook_url: ""   # omit or empty to disable Discord

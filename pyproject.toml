@@ -14,7 +14,12 @@ dependencies = [
 upload = "yt_uploader.upload:main"
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0", "ruff>=0.5"]
+dev = ["pytest>=8.0", "ruff>=0.5", "pyright>=1.1.350"]
+
+[tool.pyright]
+include = ["src", "tests"]
+pythonVersion = "3.11"
+typeCheckingMode = "basic"
 
 [build-system]
 requires = ["hatchling"]
