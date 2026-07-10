@@ -1,3 +1,7 @@
+"""
+notify.py — Notifier Protocol with Telegram and Discord implementations.
+"""
+
 from __future__ import annotations
 
 import sys
