@@ -130,9 +130,7 @@ def test_notifier_protocol_runtime_check():
     assert not isinstance(BadNotifier(), Notifier)
 
     # Structural check: good implementations pass
-    assert isinstance(
-        TelegramNotifier("token", "chat_id"), Notifier
-    )
+    assert isinstance(TelegramNotifier("token", "chat_id"), Notifier)
     assert isinstance(DiscordNotifier("https://example.com/webhook"), Notifier)
 
 
