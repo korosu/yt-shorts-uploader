@@ -20,6 +20,12 @@ defaults:
   category_id: "22"           # 22 = People & Blogs
   tags: ["shorts"]
 
+  # How to place hashtags from <video>.json "tags" into the upload:
+  #   tags        — hidden metadata tags field only
+  #   description — visible hashtags appended to description
+  #   both        — both fields independently (default)
+  hashtag_placement: both
+
 # Optional Telegram and/or Discord notifications on completion / failure / quota hit.
 # Telegram: TELEGRAM_TOKEN and TELEGRAM_CHAT_ID go in .env
 # Discord: webhook URL goes here. Both can be active simultaneously.
