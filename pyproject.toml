@@ -36,5 +36,8 @@ include = ["src", "tests"]
 pythonVersion = "3.10"
 typeCheckingMode = "basic"
 
+[project.optional-dependencies]
+dev = ["ruff>=0.15.20", "pytest>=8.0", "pyright>=1.1"]
+
 [dependency-groups]
-dev = ["ruff>=0.15.20", "pytest>=8.0"]
+dev = ["ruff>=0.15.20", "pytest>=8.0", "pyright>=1.1"]
