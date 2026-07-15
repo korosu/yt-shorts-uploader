@@ -26,11 +26,16 @@ class TelegramNotifier:
         if not self._token or not self._chat_id:
             return
         try:
-            requests.post(
+            resp = requests.post(
                 f"https://api.telegram.org/bot{self._token}/sendMessage",
                 json={"chat_id": self._chat_id, "text": message},
                 timeout=10,
             )
+            if resp.status_code != 200:
+                print(
+                    f"[notify] telegram returned {resp.status_code}: {resp.text[:200]}",
+                    file=sys.stderr,
+                )
         except requests.RequestException as exc:
             print(f"[notify] telegram failed: {exc}", file=sys.stderr)
 
@@ -43,7 +48,12 @@ class DiscordNotifier:
         if not self._url:
             return
         try:
-            requests.post(self._url, json={"content": message}, timeout=10)
+            resp = requests.post(self._url, json={"content": message}, timeout=10)
+            if resp.status_code not in (200, 204):
+                print(
+                    f"[notify] discord returned {resp.status_code}: {resp.text[:200]}",
+                    file=sys.stderr,
+                )
         except requests.RequestException as exc:
             print(f"[notify] discord failed: {exc}", file=sys.stderr)
 
