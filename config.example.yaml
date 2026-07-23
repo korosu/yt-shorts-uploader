@@ -26,9 +26,6 @@ defaults:
   #   both        — both fields independently (default)
   hashtag_placement: both
 
-# Optional Telegram and/or Discord notifications on completion / failure / quota hit.
-# Telegram: TELEGRAM_TOKEN and TELEGRAM_CHAT_ID go in .env
-# Discord: webhook URL goes here. Both can be active simultaneously.
-notify:
-  enabled: true
-  discord_webhook_url: ""   # omit or empty to disable Discord
+# Telegram alerts (optional — leave TELEGRAM_TOKEN/TELEGRAM_CHAT_ID empty in .env to disable).
+# The telegram_prefix identifies the source in multi-project setups.
+telegram_prefix: "yt-shorts-uploader"
